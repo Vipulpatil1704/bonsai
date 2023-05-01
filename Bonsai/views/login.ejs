@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <!--css linking-->
+        <link rel="stylesheet" href="/login.css">
+            <!--Fonts Awesome-->
+    <!--Link Icon -->
+    <link rel="icon" href="https://assets-global.website-files.com/635ac9564cc3682ce1536786/635e93995f68fe1c62813ba5_Path%20(2).png">
+    <script src="https://kit.fontawesome.com/202d73839d.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!--Login section-->
+        <section>
+            <form method="post" action="/login">
+                <div class="login-div">
+                    <h1>
+                        Login to Bonsai
+                    </h1>
+                    <a href="/auth/google" class="anchor-style">
+                        <i class="fa-brands fa-google"></i>
+                        Sign in with Google
+                    </a>
+                    <hr class="hr-style"><span class="span-style">or</span><hr class="hr-style">
+                    <input class="input-style" type="text" name="username" placeholder="Email">
+                    <input class="input-style" type="password" name="password" placeholder="Password">
+                    <button class="btn btn-lg btn-outline-dark" type="submit">Login</button>
+                </div>
+            </form>
+            
+        </section>
+    </body>
+</html>

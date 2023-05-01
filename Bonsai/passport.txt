@@ -1,0 +1,41 @@
+-->Register user in our database
+
+The register() method is a convenience method provided by the passport-local-mongoose module in Mongoose. This method is used to register a new user in your database with a hashed password.
+
+The method is attached to your Mongoose user model and takes in three arguments: user, password, and callback. Here is what each of these arguments does:
+
+user: This is an object that contains the fields you want to store for the user in the database. These fields are defined in your Mongoose schema.
+
+password: This is the password the user has provided during registration. The register() method automatically hashes the password before storing it in the database.
+
+callback: This is a callback function that is called after the user is successfully registered or if there is an error during the registration process.
+
+The register() method automatically handles hashing the password and saving the user to the database. It also handles any errors that may occur during the registration process, such as if the user already exists in the database.
+
+Overall, the register() method provides a convenient way to register new users with hashed passwords in your Mongoose application without needing to handle password hashing and database operations manually.
+
+In the context of authentication, the register() method provided by passport-local-mongoose module is used to create and save a new user to the database with a hashed password. The method internally calls the user.setPassword() method to hash the provided password and then saves the new user object to the database.
+
+Q.why there is need of authenticate user in register method
+
+Once the new user object is saved to the database, it does not mean that the user is automatically authenticated. The register() method only handles the registration process and does not log the user in. The user needs to authenticate themselves separately in order to access protected resources in your application.
+
+So, after successfully registering a new user, you may want to log them in automatically by creating a new session. In order to do that, you can call the req.login() method provided by Passport after the user has been registered. This method logs in the user by creating a new session and setting a cookie in the user's browser.
+
+Here is an example code snippet to illustrate the process:
+
+javascript
+Copy code
+router.post('/register', function(req, res) {
+  User.register(new User({ username: req.body.username }), req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render('register');
+    }
+
+    passport.authenticate('local')(req, res, function() {
+      res.redirect('/dashboard');
+    });
+  });
+});
+In this example, after the register() method has successfully saved the new user to the database, the passport.authenticate() method is called to authenticate the user by creating a new session. The req.login() method is not used explicitly in this example, but it is called internally by the passport.authenticate() method to log the user in.
